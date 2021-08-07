@@ -1,0 +1,365 @@
+# 1 "debug_tracks.nml"
+
+grf{
+	grfid: "UPDT" ;
+	name: string(STR_GRF_NAME) ;
+	desc: string(STR_GRF_DESC) ;
+	version: 1 ;
+	min_compatible_version: 0 ;
+	param 1{
+		debug_tracks{
+			type    : bool ;
+			name    : string(STR_PARAM_DEBUG_TRACKS_NAME) ;
+			desc    : string(STR_PARAM_DEBUG_TRACKS_DESC) ;
+			bit     : 1 ;
+			def_value : 0 ;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+railtypetable {
+    "RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ",  "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN", "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE",
+}
+
+
+
+
+
+basecost{
+	PR_BUILD_RAIL	: 0 ;
+}
+
+
+
+
+
+
+
+
+spriteset(gfx_blank, "tracks.png"){
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+}
+
+
+template template_overlay(x, y){
+	[x,		y,		64,		31,		-31,	0	, ANIM]//North East
+	[x+70,	y,		64,		31,		-31,	0	, ANIM]//North West
+	[x+350,	y,		64,		31,		-31,	0	, ANIM]//Horizontal Top
+	[x+280,	y,		64,		31,		-31,	0	, ANIM]//Horizontal Bottom
+	[x+210,	y,		64,		31,		-31,	0	, ANIM]//Vertical Right
+	[x+140,	y,		64,		31,		-31,	0	, ANIM]//Vertical Left
+	[x+560,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope NE
+	[x+630,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope SE
+	[x+700,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope SW
+	[x+770,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope NW
+}
+
+template template_underlay_noballast(x, y){
+	[x,		y,		64,		31,		-31,	0	, ANIM]//North East
+	[x+70,	y,		64,		31,		-31,	0	, ANIM]//North West
+	[x+350,	y,		64,		31,		-31,	0	, ANIM]//Horizontal Top
+	[x+280,	y,		64,		31,		-31,	0	, ANIM]//Horizontal Bottom
+	[x+210,	y,		64,		31,		-31,	0	, ANIM]//Vertical Right
+	[x+140,	y,		64,		31,		-31,	0	, ANIM]//Vertical Left
+	[x+560,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope NE
+	[x+630,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope SE
+	[x+700,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope SW
+	[x+770,	y+40,	64,		41,		-31,	-10	, ANIM]//Slope NW
+	[x+420,		y+40,	64,		31,		-31,	0	, ANIM]//Cross over
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+}
+
+/*
+	[x+140,	y+40,	64,		41,		-31,	-10	]//Slope NE
+	[x+210,	y+40,	64,		41,		-31,	-10	]//Slope SE
+	[x+280,	y+40,	64,		41,		-31,	-10	]//Slope SW
+	[x+350,	y+40,	64,		41,		-31,	-10	]//Slope NW
+}*/
+
+template template_underlay(x, y , x2){
+	[x+420,		y+0,	64,		31,		-31,	0	, ANIM]//North East
+	[x+490,		y+0,	64,		31,		-31,	0	, ANIM]//North West
+	[x+770,		y+0,	64,		31,		-31,	0	, ANIM]//Horizontal Top
+	[x+700,		y+0,	64,		31,		-31,	0	, ANIM]//Horizontal Bottom
+	[x+630,		y+0,	64,		31,		-31,	0	, ANIM]//Vertical Right
+	[x+560,		y+0,	64,		31,		-31,	0	, ANIM]//Vertical Left
+	[x+560,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope NE
+	[x+630,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope SE
+	[x+700,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope SW
+	[x+770,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope NW
+	[x+420,		y+40,	64,		31,		-31,	0	, ANIM]//Cross over
+	[x2+140,	35,		64,		31,		-31,	0 	, ANIM]//Junction SW
+	[x2+210,	35,		64,		31,		-31,	0	, ANIM]//Junction NE
+	[x2+280,	35,		64,		31,		-31,	0	, ANIM]//Junction SE
+	[x2+350,	35,		64,		31,		-31,	0	, ANIM]//Junction NW
+	[x2+70,		35,		64,		31,		-31,	0	, ANIM]//Full tile
+}
+
+template template_underlay_bridge(x, y){
+	[x+420,		y+0,	64,		31,		-31,	0	, ANIM]//North East
+	[x+490,		y+0,	64,		31,		-31,	0	, ANIM]//North West
+	[x+560,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope NE
+	[x+630,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope SE
+	[x+700,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope SW
+	[x+770,		y+40,	64,		41,		-31,	-10	, ANIM]//Slope NW
+	[x+770,		y+0,	64,		31,		-31,	0	, ANIM]//Horizontal Top
+	[x+700,		y+0,	64,		31,		-31,	0	, ANIM]//Horizontal Bottom
+	[x+630,		y+0,	64,		31,		-31,	0	, ANIM]//Vertical Right
+	[x+560,		y+0,	64,		31,		-31,	0	, ANIM]//Vertical Left
+}
+
+
+template template_tunnel_tracks(x, y) {
+	[0,		0,	64,		31,		-31,	0	, ANIM]
+	[70,	0,	64,		31,		-31,	0	, ANIM]
+	[0,		0,	64,		31,		-31,	0	, ANIM]
+	[70,	0,	64,		31,		-31,	0	, ANIM]
+}
+
+template template_lc_decorations(x, y){
+	[x,		y+40,		64,		31,		-31,	0	, ANIM]//North East
+	[x+70,	y+40,		64,		31,		-31,	0	, ANIM]//North West
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+	[ 0  , 0 , 1 , 1 , 0,  0  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+spriteset(gfx_SAAX_overlay,	"tracks.png")	{template_overlay(137, 0)}
+
+spriteset(gfx_SAAX_ballast,	"tracks.png")	{template_underlay(137, 0, 1000)}
+
+spriteset(gfx_SAAX_bridge,	"tracks.png")	{template_underlay_bridge(137, 0)}
+
+spriteset(gfx_SAAX_tunnel,	"tracks.png")	{template_tunnel_tracks(137, 0)}
+
+spriteset(gfx_SAAX_lc,		"tracks.png")	{template_lc_decorations(0, 0)}
+
+item(FEAT_RAILTYPES, rail_SAAX) {
+	property {
+		label						: "SAAX" ;
+		name						: string(STR_SAAX_NAME) ;
+		menu_text					: string(STR_SAAX_NAME) ;
+		build_window_caption		: string(STR_RAIL_BUILD_NAME) ;
+		autoreplace_text			: string(STR_RAIL_REPLACE_NAME) ;
+		new_engine_text				: string(STR_RAIL_NEW_TRAIN) ;
+		toolbar_caption				: string(STR_RAIL_TOOLBAR) ;
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		curve_speed_multiplier		: 0 ;
+		station_graphics			: RAILTYPE_STATION_NORMAL ;
+		construction_cost			: 0 ;
+		acceleration_model			: ACC_MODEL_RAIL ;
+		railtype_flags				: bitmask() ;
+		introduction_date			: date(1,1,1) ;
+		sort_order					: 254 ;
+	}
+	graphics {
+		track_overlay		: gfx_SAAX_overlay ;
+		underlay			: gfx_SAAX_ballast ;
+		bridge_surfaces		: gfx_SAAX_bridge ;
+		tunnels				: gfx_SAAX_tunnel ;
+		level_crossings		: gfx_SAAX_lc ;
+		//depots          : 
+		fences          : gfx_blank ;
+	}
+}
+
+
+
+spriteset(gfx_SBAX_underlay,	"tracks.png")	{template_underlay_noballast(137, 0)}
+
+item(FEAT_RAILTYPES, rail_SBAX) {
+	property {
+		label						: "SBAX" ;
+		name						: string(STR_SBAX_NAME) ;
+		menu_text					: string(STR_SBAX_NAME) ;
+		build_window_caption		: string(STR_RAIL_BUILD_NAME) ;
+		autoreplace_text			: string(STR_RAIL_REPLACE_NAME) ;
+		new_engine_text				: string(STR_RAIL_NEW_TRAIN) ;
+		toolbar_caption				: string(STR_RAIL_TOOLBAR) ;
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		curve_speed_multiplier		: 0 ;
+		station_graphics			: RAILTYPE_STATION_NORMAL ;
+		construction_cost			: 0 ;
+		acceleration_model			: ACC_MODEL_RAIL ;
+		railtype_flags				: bitmask() ;
+		introduction_date			: date(1,1,1) ;
+		sort_order					: 255 ;
+	}
+	graphics {
+		track_overlay		: gfx_SAAX_overlay ;
+		underlay			: gfx_SBAX_underlay ;
+		bridge_surfaces		: gfx_SAAX_bridge ;
+		tunnels				: gfx_SAAX_tunnel ;
+		level_crossings		: gfx_SAAX_lc ;
+		//depots          : 
+		fences          : gfx_blank ;
+	}
+}
+
+
+
+
+
+if(debug_tracks < 1){
+	
+	item(FEAT_RAILTYPES, rail_SAAX) {
+	property {
+		railtype_flags : bitmask(RAILTYPE_FLAG_HIDDEN) ;
+	}
+	}
+	
+	item(FEAT_RAILTYPES, rail_SBAX) {
+	property {
+		railtype_flags : bitmask(RAILTYPE_FLAG_HIDDEN) ;
+	}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "RAIL";
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "ELRL";
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ", "SAAX", "SBAX"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "3RDR";
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ", "SAAX", "SBAX"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "3RDC";
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ", "SAAX", "SBAX"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "SAA3";
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ", "SAAX", "SBAX"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "SAAZ";
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ", "SAAX", "SBAX"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "SAA4";
+		compatible_railtype_list	: ["RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"] ;
+		powered_railtype_list		: ["4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "SAAX", "SBAX"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "NAAN";
+		compatible_railtype_list	: [ "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN", "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE", "SAAX", "SBAX"] ;
+		powered_railtype_list		: [ "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN", "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE", "SAAX", "SBAX"] ;
+    }
+}
+
+item(FEAT_RAILTYPES) {
+    property {
+        label: "NABE";
+		compatible_railtype_list	: [ "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN", "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE", "SAAX", "SBAX"] ;
+		powered_railtype_list		: ["ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE", "SAAX", "SBAX"] ;
+    }
+}
+
+
