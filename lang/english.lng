@@ -1,6 +1,6 @@
 ##grflangid 0x01
 
-STR_GRF_NAME	:Railtype Compatibility GRF
+STR_GRF_NAME	:{RED}Railtype Compatibility GRF
 STR_GRF_DESC	:{GOLD}A GRF that intends to mend incompatibilities between Rail Vehicle GRFS and Track Type GRFs, so that old and new GRFs should be able to work together!{}{RED}WARNING: It is recommended to place this GRF at the end of your active GRFs list, so that it can be loaded last and not have its effects overided!{}{GOLD}Graphics drawn by and coded by {RED}UnholyPhish{GOLD}, with code borrowed from the Industrail Track Set by Erato Nysiad. Licenced under GPL v2.
 
 STR_RAIL_TOOLBAR			:Developer Track construction

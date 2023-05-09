@@ -3,7 +3,7 @@ grf{
 	grfid: "UPDT" ;
 	name: string(STR_GRF_NAME) ;
 	desc: string(STR_GRF_DESC) ;
-	version: 1 ;
+	version: 2 ;
 	min_compatible_version: 0 ;
 	param 1{
 		debug_tracks{
@@ -17,43 +17,32 @@ grf{
 }
 
 
-#define STANDARD_GAUGE_RAILTYPE_ALL STANDARD_GAUGE_RAILTYPE_NOT_ELECTRIFIED, STANDARD_GAUGE_RAILTYPE_EVERY_ELEC
+#define STANDARD_GAUGE_RAILTYPE_ALL STANDARD_GAUGE_RAILTYPE_NOT_ELECTRIFIED, STANDARD_GAUGE_RAILTYPE_EVERY_ELEC, "SAAX", "SBAX"
 
-#define STANDARD_GAUGE_RAILTYPE_NOT_ELECTRIFIED "RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SAAX", "SBAX"
+#define STANDARD_GAUGE_RAILTYPE_NOT_ELECTRIFIED "RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SADN", "SAEN", "SBAN", "SBBN", "SBCN", "SBDN", "SBEN", "SCAN", "SCBN", "SCCN", "SCDN", "SCEN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "SUAN", "SUBN", "SUUN", "SUDN", "SUEN", "SU1N", "SU2N", "SU3N", "SU4N", "SU5N", "SY1N", "SY2N", "SY3N", "SY4N", "SY5N"
 
 #define STANDARD_GAUGE_RAILTYPE_EVERY_ELEC STANDARD_GAUGE_RAILTYPE_CATENARY, STANDARD_GAUGE_RAILTYPE_3RD_RAIL , STANDARD_GAUGE_RAILTYPE_4TH_RAIL, STANDARD_GAUGE_RAILTYPE_DUAL
 
 #define STANDARD_GAUGE_RAILTYPE_OHLE_ONLY STANDARD_GAUGE_RAILTYPE_CATENARY, STANDARD_GAUGE_RAILTYPE_DUAL
 
-#define STANDARD_GAUGE_RAILTYPE_CATENARY "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE"
+#define STANDARD_GAUGE_RAILTYPE_CATENARY "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SADE", "SAEE", "SBAE", "SBBE", "SBCE", "SBDE", "SBEE", "SCAE", "SCBE", "SCCE", "SCDE", "SCEE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "SUAE", "SUBE", "SUUE", "SUDE", "SUEE", "SU1E", "SU2E", "SU3E", "SU4E", "SU5E", "SAAD", "SABD", "SACD", "SADD", "SAED", "SBAD", "SBBD", "SBCD", "SBDD", "SBED", "SCAD", "SCBD", "SCCD", "SCDD", "SCED", "SUAD", "SUBD", "SUUD", "SUDD", "SUED", "SY1E", "SY2E", "SY3E", "SY4E", "SY5E"
 
-#define STANDARD_GAUGE_RAILTYPE_3RD_RAIL "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3"
+#define STANDARD_GAUGE_RAILTYPE_3RD_RAIL "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SAD3", "SAE3", "SBA3", "SBB3", "SBC3", "SBD3", "SBE3", "SCA3", "SCB3", "SCC3", "SCD3", "SCE3", "SDA3", "SEA3", "SFA3", "SSA3", "SSB3", "SSC3", "SSD3", "SSE3", "SUA3", "SUB3", "SUC3", "SUD3", "SUE3", "SY13", "SY23", "SY33", "SY43", "SY53"
 
-#define STANDARD_GAUGE_RAILTYPE_4TH_RAIL "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4"
+#define STANDARD_GAUGE_RAILTYPE_4TH_RAIL "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SAD4", "SAE4", "SBA4", "SBB4", "SBC4", "SBD4", "SBE4", "SCA4", "SCB4", "SCC4", "SCD4", "SCE4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4"
 
 
-#define STANDARD_GAUGE_RAILTYPE_DUAL "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ"
+#define STANDARD_GAUGE_RAILTYPE_DUAL "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SADZ", "SAEZ", "SBAZ", "SBBZ", "SBCZ", "SBDZ", "SBEZ", "SCAZ", "SCBZ", "SCCZ", "SCdZ", "SCeZ", "SDAZ", "SDBZ", "SDCZ", "SDDZ", "SDEZ", "SY1Z", "SY2Z", "SY3Z", "SY4Z", "SY5Z"
 	
 	
 #define NARROW_GAUGE_RAILTYPE_ALL  NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED, NARROW_GAUGE_RAILTYPE_CATENARY
 
-#define NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN"
+#define NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED "NGRL", "NLOW", "NHIG", "NAAN", "NABN", "NACN", "NADN", "NAEN", "NAKN", "NBAN", "NBBN", "NBCN", "NBDN", "NBEN", "NBKN", "NCAN", "NCBN", "NCCN", "NCDN", "NCEN", "NCKN", "NUAN", "NUBN", "NUUN", "NUDN", "NUEN", "NU1N", "NU2N", "NU3N", "NU4N", "NU5N"
 
-#define NARROW_GAUGE_RAILTYPE_CATENARY "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE"
-
-
+#define NARROW_GAUGE_RAILTYPE_CATENARY "ELNG", "ENLW", "ENHI", "NAAE", "NABE", "NACE", "NADE", "NAEE", "NAKE", "NBAE", "NBBE", "NBCE", "NBDE", "NBEE", "NBKE", "NCAE", "NCBE", "NCCE", "NCDE", "NCEE", "NCKE", "NUAE", "NUBE", "NUUE", "NUDE", "NUEE", "NU1E", "NU2E", "NU3E", "NU4E", "NU5E", "NAAd", "NABd", "NACd", "NAdd", "NAEd", "NAKd", "NBAd", "NBBd", "NBCd", "NBdd", "NBEd", "NBKd", "NCAd", "NCBd", "NCCd", "NCdd", "NCEd", "NCKd", "NUAd", "NUBd", "NUUd", "NUdd", "NUEd"
 
 
 
-
-
-
-
-
-
-railtypetable {
-    STANDARD_GAUGE_RAILTYPE_ALL, NARROW_GAUGE_RAILTYPE_ALL,
-}
 
 
 
@@ -305,6 +294,8 @@ item(FEAT_RAILTYPES) {
         label: "RAIL";
 		compatible_railtype_list	: [STANDARD_GAUGE_RAILTYPE_ALL] ;
 		powered_railtype_list		: [STANDARD_GAUGE_RAILTYPE_ALL] ;
+		alternative_railtype_list	: [STANDARD_GAUGE_RAILTYPE_NOT_ELECTRIFIED] ;
+		introduces_railtype_list	: [STANDARD_GAUGE_RAILTYPE_NOT_ELECTRIFIED] ;
     }
 }
 
@@ -313,6 +304,8 @@ item(FEAT_RAILTYPES) {
         label: "ELRL";
 		compatible_railtype_list	: [STANDARD_GAUGE_RAILTYPE_ALL] ;
 		powered_railtype_list		: [STANDARD_GAUGE_RAILTYPE_OHLE_ONLY, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [STANDARD_GAUGE_RAILTYPE_CATENARY] ;
+		introduces_railtype_list	: [STANDARD_GAUGE_RAILTYPE_CATENARY] ;
     }
 }
 
@@ -321,6 +314,8 @@ item(FEAT_RAILTYPES) {
         label: "3RDR";
 		compatible_railtype_list	: [STANDARD_GAUGE_RAILTYPE_ALL] ;
 		powered_railtype_list		: [STANDARD_GAUGE_RAILTYPE_3RD_RAIL, STANDARD_GAUGE_RAILTYPE_DUAL, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [STANDARD_GAUGE_RAILTYPE_3RD_RAIL] ;
+		introduces_railtype_list	: [STANDARD_GAUGE_RAILTYPE_3RD_RAIL] ;
     }
 }
 
@@ -329,6 +324,8 @@ item(FEAT_RAILTYPES) {
         label: "3RDC";
 		compatible_railtype_list	: [STANDARD_GAUGE_RAILTYPE_ALL] ;
 		powered_railtype_list		: [STANDARD_GAUGE_RAILTYPE_EVERY_ELEC, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [STANDARD_GAUGE_RAILTYPE_DUAL] ;
+		introduces_railtype_list	: [STANDARD_GAUGE_RAILTYPE_DUAL] ;
     }
 }
 
@@ -337,6 +334,8 @@ item(FEAT_RAILTYPES) {
         label: "SAA3";
 		compatible_railtype_list	: [STANDARD_GAUGE_RAILTYPE_ALL] ;
 		powered_railtype_list		: [STANDARD_GAUGE_RAILTYPE_3RD_RAIL, STANDARD_GAUGE_RAILTYPE_DUAL, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [STANDARD_GAUGE_RAILTYPE_3RD_RAIL] ;
+		introduces_railtype_list	: [STANDARD_GAUGE_RAILTYPE_3RD_RAIL] ;
     }
 }
 
@@ -345,6 +344,8 @@ item(FEAT_RAILTYPES) {
         label: "SAAZ";
 		compatible_railtype_list	: [STANDARD_GAUGE_RAILTYPE_ALL] ;
 		powered_railtype_list		: [STANDARD_GAUGE_RAILTYPE_EVERY_ELEC, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [STANDARD_GAUGE_RAILTYPE_DUAL] ;
+		introduces_railtype_list	: [STANDARD_GAUGE_RAILTYPE_DUAL] ;
     }
 }
 
@@ -353,6 +354,8 @@ item(FEAT_RAILTYPES) {
         label: "SAA4";
 		compatible_railtype_list	: [STANDARD_GAUGE_RAILTYPE_ALL] ;
 		powered_railtype_list		: [STANDARD_GAUGE_RAILTYPE_4TH_RAIL, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [STANDARD_GAUGE_RAILTYPE_4TH_RAIL] ;
+		introduces_railtype_list	: [STANDARD_GAUGE_RAILTYPE_4TH_RAIL] ;
     }
 }
 
@@ -361,6 +364,8 @@ item(FEAT_RAILTYPES) {
         label: "NAAN";
 		compatible_railtype_list	: [NARROW_GAUGE_RAILTYPE_ALL, "SAAX", "SBAX"] ;
 		powered_railtype_list		: [NARROW_GAUGE_RAILTYPE_ALL, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED] ;
+		introduces_railtype_list	: [NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED] ;
     }
 }
 
@@ -369,6 +374,8 @@ item(FEAT_RAILTYPES) {
         label: "NABE";
 		compatible_railtype_list	: [NARROW_GAUGE_RAILTYPE_ALL, "SAAX", "SBAX"] ;
 		powered_railtype_list		: [NARROW_GAUGE_RAILTYPE_CATENARY, "SAAX", "SBAX"] ;
+		alternative_railtype_list	: [NARROW_GAUGE_RAILTYPE_CATENARY] ;
+		introduces_railtype_list	: [NARROW_GAUGE_RAILTYPE_CATENARY] ;
     }
 }
 
