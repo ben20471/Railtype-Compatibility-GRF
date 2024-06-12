@@ -1,4 +1,4 @@
-##grflangid 0x01
+##grflangid 0x03
 
 STR_GRF_NAME	:{RED}Railtype Compatibility GRF
 STR_GRF_DESC	:{GOLD}Un GRF qui vise à corriger les incompatibilités entre les GRFs de trains et de voies, afin que les anciens et nouvaux GRFs fonctionnent ensemble{NBSP}!{}{RED}ATTENTION{NBSP}:Il est reccomandé de placer ce GRF à la fin de la liste des GRFs actifs pour qu’il soit chargé en dernier et que ses effets ne soient pas annulés{NBSP}!{}{GOLD}Graphiques dessinés et programmés par {RED}UnholyPhish{GOLD}, avec du code emprunté à Industrial Track Set de Erato Nysiad. Sous  licence GPL v2.
